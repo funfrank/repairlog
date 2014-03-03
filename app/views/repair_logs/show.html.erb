@@ -1,0 +1,90 @@
+
+<%= form_for(@repair_log) do |f| %>
+
+<p>
+  <b><%= f.label @current_user.category.posid %>:</b>
+  <%= @repair_log.posid %>
+</p>
+
+<p>
+  <b><%= f.label :company %>:</b>
+  <%= @repair_log.company.name %>
+</p>
+
+<p>
+  <b><%= f.label :contractor %>:</b>
+  <%= @repair_log.contractor %>
+</p>
+
+<p>
+  <b><%= f.label :phone %>:</b>
+  <%= @repair_log.phone %>
+</p>
+
+<p>
+  <b><%= f.label :sendDate %>:</b>
+  <%= @repair_log.sendDate.localtime.to_s(:db) %>
+</p>
+
+<p>
+  <b><%= f.label :failure %>:</b>
+  <%= @repair_log.failure.name %>
+</p>
+
+<p>
+  <b><%= f.label :sendNote %>:</b>
+  <%= @repair_log.sendNote %>
+</p>
+
+
+<p>
+  <b><%= f.label :note %>:</b>
+  <%= @repair_log.note %>
+</p>
+<p>
+  <b><%= f.label :device %>:</b>
+  <%= @repair_log.devices_repair_logs_short %>
+</p>
+
+<p>
+  <b><%= f.label :operator %>:</b>
+  <%= @repair_log.operator.name %>
+</p>
+
+<p>
+  <b><%= f.label :state %>:</b>
+  <%= @repair_log.state.name %>
+</p>
+
+<p>
+  <b><%= f.label :stateDate %>:</b>
+  <%= @repair_log.stateDate %>
+</p>
+   
+  <br />
+
+<table>
+  <tr>
+    <th><%= title_for 'date'%></th>
+    <th><%= title_for 'state'%></th>
+    <th><%= title_for 'maintainor'%></th>
+    <th><%= title_for 'user2'%></th>
+  </tr>
+
+<% @repair_log.states_repair_logs.each do |log| %>
+  <tr>
+    <td><%= log.date.localtime.to_s(:db) %></td>
+    <td><%= log.state.name %></td>
+    <td><%= log.user.name %></td>
+    <td><%= log.user2.name if log.user2 %></td>
+  </tr>
+<% end %>
+</table>
+
+
+
+
+<% end %>
+
+<%= link_to_l 'Back', repair_logs_path %>
+

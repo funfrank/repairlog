@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Repairlog</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body class="guide">
+
+<div id="topNav">
+   <div class="wrapper">
+    <strong>
+      <% if @current_user %>
+        <%= @current_user.name + '@[' + @current_user.area.name + ']' %>|
+        <%=link_to_l 'logout', logout_path %>
+        <div class='right'>
+          <% if @is_admin %>
+            <%= header_for 'unavalible_stocks_devices'%>:<%= Device.unavalible_stocks_devices_short(@current_user.category.id).html_safe%><br/> 
+            <%= header_for 'warning_stocks_devices'%>:<%= Device.warning_stocks_devices_short(@current_user.category.id).html_safe%><br/>       
+          <% else %>
+            <%= header_for 'unavalible_stocks_devices'%>:<font color='white'><%= Device.unavalible_stocks_area_devices_short(@current_user.category.id, @current_user.area.id).html_safe%></font><br/>         
+			<%= header_for 'unavalible_stocks_devices'%>:<font color='white'><%= Device.warning_stocks_area_devices_short(@current_user.category.id, @current_user.area.id).html_safe%></font><br/>           
+          <% end %>
+        </div>  
+	  <% end %>
+    </strong>
+   </div>
+</div>
+
+<div id="header">
+ <div class="wrapper clearfix">
+   <h1>
+     <%= @current_user.category.name + '*'  if @current_user %><%=header_for 'application'%> 
+   </h1>
+
+   <ul class="nav">
+   <% if @current_user %>   
+   <li>
+     <% if '/repair_logs' != (request.env['REQUEST_PATH'])%>
+       <%=link_to_l 'repair_log', repair_logs_path%>
+	 <% else %>  
+      <%= link_to_l 'New Repair_log', new_repair_log_path %>   
+	 <% end %> 	  
+   |</li>
+  <% end %>   
+   <% if @is_admin %>
+     <li><%=link_to_l 'device', devices_path%>|</li>
+     <li><%=link_to_l 'user', users_path%>|</li>
+     <li><%=link_to_l 'failure', failures_path%>|</li>
+     <li><%=link_to_l 'company', companies_path%>|</li>
+     <li><%=link_to_l 'area', areas_path%>|</li>
+   <% elsif  @current_user %>
+   <% end %> 
+   <% if @current_user %>
+   <% @current_user.category.reports.each do |r| %>      
+	 <li><%=link_to_l r.to_s, eval(r+'s_path') %></li>
+    <% end %> 
+   <% end %> 
+   <br/>
+
+   </ul>
+
+ </div>
+</div>
+
+<div id="feature">
+  <div class="wrapper">
+    <p id="notice"><%= notice %></p>
+
+    <%= yield %>
+
+  </div>
+</div>
+
+<div id="footer">
+  <div class="wrapper">
+    <p><%=header_for 'footer'%></p>
+  </div>
+</div>
+
+</body>
+</html>

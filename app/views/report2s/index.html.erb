@@ -1,0 +1,29 @@
+<% I18n.with_options :scope => [:activerecord, :attributes, :report2] do |i18_l| %>
+
+<%= form_for( RepairLog.new_searcher, :url => { :action => 'search' }, :method => 'get', :remote => true ) do |f| %>
+<div id='search'>
+   <%= label_tag i18_l.t :company %>
+   <%= f.collection_select :company_id, Company.where(:category_id => @current_user.category.id), :id, :name, :prompt => true %>  
+   <%= label_tag i18_l.t :posid %>
+   <%= f.text_field :posid, :size => 20  %>
+
+   <%= button_tag_l 'search'%>
+<% end %>
+</div>
+
+<div id='print'><%= button_tag_l 'print' %></div>
+
+
+<div id='PrintDiv'>
+
+<div id='results'> 
+  <%=render :partial => 'results', :locals => {:repair_logs => @repair_logs} %>
+</div>
+
+</div>
+
+
+
+
+<% end %>
+

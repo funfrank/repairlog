@@ -1,0 +1,435 @@
+zh-CN:
+  date:
+    abbr_day_names:
+    - 日
+    - 一
+    - 二
+    - 三
+    - 四
+    - 五
+    - 六
+    abbr_month_names:
+    - 
+    - 1月
+    - 2月
+    - 3月
+    - 4月
+    - 5月
+    - 6月
+    - 7月
+    - 8月
+    - 9月
+    - 10月
+    - 11月
+    - 12月
+    day_names:
+    - 星期日
+    - 星期一
+    - 星期二
+    - 星期三
+    - 星期四
+    - 星期五
+    - 星期六
+    formats:
+      default: ! '%Y-%m-%d'
+      long: ! '%Y年%b%d日'
+      short: ! '%b%d日'
+    month_names:
+    - 
+    - 一月
+    - 二月
+    - 三月
+    - 四月
+    - 五月
+    - 六月
+    - 七月
+    - 八月
+    - 九月
+    - 十月
+    - 十一月
+    - 十二月
+    order:
+    - :year
+    - :month
+    - :day
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: 大约一小时
+        other: 大约 %{count} 小时
+      about_x_months:
+        one: 大约一个月
+        other: 大约 %{count} 个月
+      about_x_years:
+        one: 大约一年
+        other: 大约 %{count} 年
+      almost_x_years:
+        one: 接近一年
+        other: 接近 %{count} 年
+      half_a_minute: 半分钟
+      less_than_x_minutes:
+        one: 不到一分钟
+        other: 不到 %{count} 分钟
+      less_than_x_seconds:
+        one: 不到一秒
+        other: 不到 %{count} 秒
+      over_x_years:
+        one: 一年多
+        other: ! '%{count} 年多'
+      x_days:
+        one: 一天
+        other: ! '%{count} 天'
+      x_minutes:
+        one: 一分钟
+        other: ! '%{count} 分钟'
+      x_months:
+        one: 一个月
+        other: ! '%{count} 个月'
+      x_seconds:
+        one: 一秒
+        other: ! '%{count} 秒'
+    prompts:
+      day: 日
+      hour: 时
+      minute: 分
+      month: 月
+      second: 秒
+      year: 年
+  errors:
+    format: ! '%{attribute} %{message}'
+    messages:
+      accepted: 必须是可被接受的
+      blank: 不能为空字符
+      confirmation: 与确认值不匹配
+      empty: 不能留空
+      equal_to: 必须等于 %{count}
+      even: 必须为双数
+      exclusion: 是保留关键字
+      greater_than: 必须大于 %{count}
+      greater_than_or_equal_to: 必须大于或等于 %{count}
+      inclusion: 不包含于列表中
+      invalid: 是无效的
+      less_than: 必须小于 %{count}
+      less_than_or_equal_to: 必须小于或等于 %{count}
+      not_a_number: 不是数字
+      not_an_integer: 必须是整数
+      odd: 必须为单数
+      record_invalid: ! '验证失败: %{errors}'
+      taken: 已经被使用
+      too_long: 过长（最长为 %{count} 个字符）
+      too_short: 过短（最短为 %{count} 个字符）
+      wrong_length: 长度非法（必须为 %{count} 个字符）
+      posid_no_taked: 车载机正在维修，不要重复登记！
+      in_area_equals_out_area: 入库维修点不能为出库维修点      
+    template:
+      body: 如下字段出现错误：
+      header:
+        one: 有 1 个错误发生导致「%{model}」无法被保存。
+        other: 有 %{count} 个错误发生导致「%{model}」无法被保存。
+  helpers:
+    select:
+      prompt: 请选择
+    submit:
+      create: 新增%{model}
+      submit: 储存%{model}
+      update: 更新%{model}
+  number:
+    currency:
+      format:
+        delimiter: ! ','
+        format: ! '%u %n'
+        precision: 2
+        separator: .
+        significant: false
+        strip_insignificant_zeros: false
+        unit: CN￥
+    format:
+      delimiter: ! ','
+      precision: 3
+      separator: .
+      significant: false
+      strip_insignificant_zeros: false
+    human:
+      decimal_units:
+        format: ! '%n %u'
+        units:
+          billion: 十亿
+          million: 百万
+          quadrillion: 千兆
+          thousand: 千
+          trillion: 兆
+          unit: ''
+      format:
+        delimiter: ''
+        precision: 1
+        significant: false
+        strip_insignificant_zeros: false
+      storage_units:
+        format: ! '%n %u'
+        units:
+          byte:
+            one: Byte
+            other: Bytes
+          gb: GB
+          kb: KB
+          mb: MB
+          tb: TB
+    percentage:
+      format:
+        delimiter: ''
+    precision:
+      format:
+        delimiter: ''
+  support:
+    array:
+      last_word_connector: ! ', 和 '
+      two_words_connector: ! ' 和 '
+      words_connector: ! ', '
+  time:
+    am: 上午
+    formats:
+      default: ! '%Y年%b%d日 %A %H:%M:%S %Z'
+      long: ! '%Y年%b%d日 %H:%M'
+      short: ! '%b%d日 %H:%M'
+    pm: 下午
+
+  will_paginate:
+    previous_label: "&#8592; 前"
+    next_label: "后 &#8594;"
+    page_gap: "&hellip;"
+
+  activeview:  
+    link:
+      new:   新建
+      show:  显示
+      edit:  编辑
+      back:  返回
+      destroy: 删除
+      prompt: 你确认要删除吗？
+      take:  领用
+      search: 查找
+      recoveries: 修复
+      return_factories: 返厂
+      return_factory_recovery: 返厂修复
+      repairings: 维修
+      login: 登录
+      logout: 注销
+      add: 添加
+      delete: 删除
+      report1: 设备收费表
+      report2: 设备登记表
+      report3: 工作量统计表
+      report4: 机器状态统计表
+      stock: 库存
+      stock_in: 入库
+      record: 记录
+      print: 打印
+      close: 关闭
+      contractor: 联系人
+    header:
+      listing: 列表
+      editing:  编辑      
+      new:   新建
+      show:  显示
+      edit:  编辑
+      take:  领用
+      taking:  领用
+      logged: 已登录
+      application: 维修登记系统
+      footer: 2012 | 绍兴公交一卡通 All rights reserved. 
+      unavalible_stocks_devices: 缺货的维修设备
+      warning_stocks_devices: 预警的维修设备
+      result_not_found: 无记录
+    notice:
+      success:
+        create:  「%{model}」创建成功。
+        update:  「%{model}」更新成功。
+        delete:  「%{model}」删除成功。
+        next_do:  「%{model}」操作成功。  
+        logged_in: 登录成功。
+        logged_out: 注销成功。
+        stock_in:  「%{model}」库存导入成功。
+      failure:
+        not_logged_in: 未登录。
+        login_error_pwd: 用户名或密码错误。
+        login_error_no_selected: 类别或修理店未选。
+        stock_error_zero: 「%{device}」@「%{area}」库存已用尽。
+        stock_exists: 「%{area}」还有库存。
+         
+  activerecord:
+    models:
+      company: 公司
+      state:  机器状态
+      device: 配件
+      failure: 故障
+      repair_log: 修理登记
+      user:  操作员
+      role:  角色
+      area:  维修点
+      category:  类别
+      stock: 库存
+      stocks: 库存
+    attributes:
+      company:
+        name: 名称
+        contractor: 联系人
+        phone: 电话
+      state:
+        name: 名称
+      device:
+        name: 名称
+        category: 类别
+        price: 价格 
+        stocks: 库存
+        enable: 启用
+        in_area: 入库点
+        out_area: 出库点
+        date: 日期
+        amount: 数量
+      new_stock_logs:
+        in_area_id: 入库点
+        out_area_id: 出库点
+        date: 日期
+        amount: 数量
+      failure:
+        name: 名称
+        category: 类别
+      area:
+        name: 名称
+      category:
+        name: 名称
+        posid: 对象名
+      user:
+        code: 登录名
+        password: 密码 
+        name: 姓名
+        role: 角色
+        area: 维修点
+        category: 类别
+      stock:
+        device: 配件
+        area: 维修点
+        rest: 库存
+        warning: 预警
+      stocks:
+        device: 配件
+        rest: 库存        
+        warning: 预警
+      repair_log:
+        posid:  收费机号
+        company:  归属公司
+        sendDate:  送修日期
+        failure:  送修原因
+        sendNote:  送修备注
+        state:  机器状态
+        note:  修理情况
+        operator:  登记员
+        outDate:  领取日期
+        stateDate:  机器状态日期
+        device_repair_log: 修理配件  
+        area: 维修点
+        category: 类别
+        device: 修理配件
+        devices: 修理配件
+        cost: 维修费
+        contractor: 联系人
+        phone: 电话
+        date: 操作时间
+        user2: 协助人
+        maintainor: 维修员
+      states_repair_log:
+        date:  操作日期
+        user:  人员
+        state:  操作
+      report1:
+        head: 绍兴市城市公交一卡通有限责任公司
+        subhead: 售后服务物品维修报告
+        company: 公司
+        carid: 车号
+        contractor: 联系人
+        id: 序号
+        posid: 名称及编号
+        failure: 故障现象
+        deviceRepairLogs: 维修方法及更换配件（含单价/元）
+        priceDeviceRepairLogs: 配件价格（元）
+        note: 备注
+        sum: 小计(元)
+        cost: 维修费(元)
+        total: 合计(元)        
+        note1: 经我公司维修人员检测，特出具以下维修报告：
+        note2: 此报告为返修物品的情况说明，请予以保存并请尽量根据改善建议，采取预防纠正措施。以防止同类问题的发生，如返修件已过保修期，我们会在‘配件价格’栏内注明维修费用，请收阅本报告后，签字或加盖公章予以收费认可。城南联系电话：0575-88375771，城西服务中心联系电话：     谢谢合作！
+        cur_date: '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'
+        sign_up: '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;确认签字（章）'
+        sign_date: '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;日   　　　期'
+        outDate: 领用日期
+      report2:
+        head: 绍兴公交一卡通设备维修登记表
+        company: 公司
+        contractor: 联系人
+        id: 序号
+        posid: 名称及编号
+        operator: 登记人
+        date: 日期
+        area: 维修点
+        note: 备注
+        sign_up:  '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;登记人'
+        sign_date: '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;登记日期'
+      report3:
+        head: 绍兴公交一卡通维修工作量统计表
+        user: 人员
+        state: 操作
+        times: 次数
+        is_helper: 是否协助
+      report4:
+        head: 绍兴公交一卡通机器状态统计表
+        company: 公司
+        id: 序号
+        date: 操作日期
+        posid: 名称及编号
+        state: 机器状态
+        days: 累计天数        
+    search:
+      repair_log:
+        company_id:  
+          company_id: company| category_id => @current_user.category.id
+        failure_id: 
+          failure_id: failure| category_id => @current_user.category.id
+        state_id:
+          state_id: state| category_id => @current_user.category.id
+        sendDate:  datetime
+      states_repair_log:
+        date:  datetime
+        state_id: 
+          state_id: state| category_id => @current_user.category.id
+    where:
+      repair_log:
+        posid:  string
+        company_id:  
+          company_id: company
+        failure_id: 
+          failure_id: failure
+        state_id:
+          state_id: state
+        sendDate:  datetime
+        stateDate:  datetime
+        operator_id:
+          operator_id: user
+        area_id: 
+          area_id: area
+        category_id:
+          category_id: category 
+        contractor: string
+        phone: string
+      states_repair_log:
+        state_id:
+          state_id: state
+        date:  datetime
+        user_id:
+          user_id: user
+    order:
+      repair_log:
+        sendDate:  desc
+        company_id:  asc
+      states_repair_log:
+        user_id:  asc
+        state_id: asc

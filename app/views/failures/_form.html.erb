@@ -1,0 +1,23 @@
+<%= form_for(@failure) do |f| %>
+  <% if @failure.errors.any? %>
+    <div id="error_explanation">
+      <h2><%=error_messages_for(@failure) %></h2>
+
+      <ul>
+      <% @failure.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="field">
+    <%= f.hidden_field :category_id %>  
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

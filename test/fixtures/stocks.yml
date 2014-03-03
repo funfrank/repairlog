@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  device: 
+  area: 
+  rest: 1
+
+two:
+  device: 
+  area: 
+  rest: 1

@@ -1,0 +1,37 @@
+<% if rpts.length > 0 %>
+<% I18n.with_options :scope => [:activerecord, :attributes, :report3] do |i18_l| %>
+<h3><%= i18_l.t :head %></h3>
+
+<% 
+ i = 0 
+%>
+
+<div>
+<table>
+  <tr>
+    <th><%= label_tag i18_l.t :user %></th>
+    <th><%= label_tag i18_l.t :state %></th>
+    <th><%= label_tag i18_l.t :times %></th>
+    <th><%= label_tag i18_l.t :is_helper %></th>
+
+  </tr>
+
+<% rpts.each do |rpt| %>
+ <tr>
+    <td><%= rpt.user.name %></td>
+    <td><%= rpt.state.name %></td>
+    <td><%= rpt.times %></td>
+    <td><%= rpt.is_helper %></td>
+ </tr>    
+<% end %>
+</table>
+</div>
+
+  
+
+  <% end %>
+
+<% end %>
+
+
+

@@ -1,0 +1,53 @@
+<%= form_for(@device) do |f| %>
+  <% if @device.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= error_messages_for(@device) %></h2>
+
+      <ul>
+      <% @device.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.hidden_field :category_id %>  
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>  
+
+  <div class="field">
+    <%= f.label :price %>
+    <%= f.text_field :price %>
+  </div>
+
+  <div class="field">
+    <%= f.label :enable %>
+    <%= f.select :enable, options_for_select([['yes', 1], ['no', 0]], @device.enable) %>  
+  </div>  
+  
+<% if @device.new_record? %>
+
+  <div id='stocks'>
+    <%= f.label :stocks %><br/>
+   <% @device.stocks.each do |stock| %>
+    <div>
+    <%= f.fields_for :stocks, stock do |sf|%>
+      <%= sf.hidden_field :area_id %>
+      <b><%= stock.area.name %></b>
+      <%= sf.text_field :rest %>
+      <%= sf.label :warning %>
+      <%= sf.text_field :warning %><br/>
+    <%end%>
+   </div>
+  <% end %>
+
+  </div>
+<% end %>
+   
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

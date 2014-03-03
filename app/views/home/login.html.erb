@@ -1,0 +1,30 @@
+<%= form_for(@user, :url => login_path ) do |f| %>
+
+
+  <div class="field">
+    <%= f.label :code %><br />
+    <%= f.text_field :code %>
+  </div>
+  <div class="field">
+    <%= f.label :password %><br/>
+    <%= f.password_field :password %>
+  </div>
+
+  <div class="field" id='login_category'>
+    <%= f.label :category %><br />
+    <%= f.collection_select :category_id, Category.all, :id, :name, :prompt => true %>  
+  </div>
+
+  <div class="field">
+    <%= f.label :area %><br />
+    <select id="user_area_id" name="user[area_id]"> </select>
+  </div>
+  
+  <div class="actions">
+    <%= button_tag_l 'login' %>
+  </div>  
+
+
+<% end %>
+
+

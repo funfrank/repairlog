@@ -1,0 +1,35 @@
+
+<table>
+  <tr>
+    <th><%= @current_user.category.posid  %></th>
+    <th><%= title_for 'company'%></th>
+    <th><%= title_for 'sendDate'%></th>
+    <th><%= title_for 'failure'%></th>
+    <th><%= title_for 'device'%></th>
+    <th><%= title_for 'area'%></th>
+    <th><%= title_for 'operator'%></th>
+    <th><%= title_for 'state'%></th>
+    <th><%= title_for 'stateDate'%></th>
+    <th></th>
+  </tr>
+
+<% repair_logs.each do |repair_log| %>
+  <tr id='<%=repair_log.id%>'>
+    <td><%= repair_log.posid %></td>
+    <td><%= repair_log.company.name %></td>
+    <td><%= to_date repair_log.sendDate  %></td>
+    <td><%= repair_log.failure.name %></td>
+    <td><%= repair_log.devices_repair_logs_short %></td>
+    <td><%= repair_log.area.name %></td>
+    <td><%= repair_log.operator.name %></td>
+    <td><%= repair_log.state.name %></td>
+    <td><%= to_date repair_log.stateDate %></td>
+    <td><%= render :partial => 'op_links', :locals => {:repair_log => repair_log}%>
+  </tr>
+<% end %>
+</table>
+
+<div class="digg_pagination">
+    <%= will_paginate repair_logs, :container => false %>
+</div>
+

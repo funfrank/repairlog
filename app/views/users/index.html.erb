@@ -1,0 +1,29 @@
+<h1><%=header_for 'Listing users'%></h1>
+
+<table>
+  <tr>
+    <th><%= title_for 'code' %></th>
+    <th><%= title_for 'name' %></th>
+    <th><%= title_for 'role' %></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @users.each do |user| %>
+  <tr>
+    <td><%= user.code %></td>
+    <td><%= user.name %></td>
+    <td><%= user.role.name %></td>
+    <td><%= link_to_l 'Edit', edit_user_path(user) %></td>
+    <td>
+    <% unless user.code.eql?('root') %>
+    <%= link_to_l 'Destroy', user, confirm: destroy_prompt, method: :delete %>
+    <% end %>
+    </td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to_l 'New User', new_user_path %>

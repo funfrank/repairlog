@@ -1,0 +1,97 @@
+<%= form_for(@repair_log) do |f| %>
+  <% if @repair_log.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= error_messages_for(@repair_log)  %></h2>
+
+      <ul>
+      <% @repair_log.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+ <div class="field" id='postid'>
+   <% unless @repair_log.id %> 
+      <%= f.hidden_field :area_id %>
+      <%= f.hidden_field :category_id %>
+      <%= f.label @current_user.category.posid %>
+       <%= f.text_field :posid %>
+    <% else %>
+      <%= f.label @current_user.category.posid %>
+      <%= hidden_field_tag "posid", @repair_log.posid %>
+      <%= hidden_field_tag "id", @repair_log.id %>
+      <%= @repair_log.posid %>
+       <%= f.label :sendDate %>
+       <%= @repair_log.sendDate %>      
+    <% end %>
+ </div>
+
+  <div class="field" id='company'>
+    <%= f.label :company %>
+    <%= f.collection_select :company_id, Company.where(:category_id => @current_user.category.id), :id, :name, :prompt => true  %>
+    <%= button_tag_l "contractor", :type => 'button' %>
+ </div>
+
+  <div class="field">
+    <%= f.label :contractor %>
+    <%= f.text_field :contractor, :size => 10 %>  
+    <%= f.label :phone %>
+    <%= f.text_field :phone, :size => 30 %>
+  </div>
+
+ <div class="field">
+    <%= f.label :failure %>
+    <%= f.collection_select :failure_id, Failure.where(:category_id => @current_user.category.id), :id, :name, :prompt => true %>  
+    <%= f.label :sendNote %>
+    <%= f.text_area :sendNote, :size => "30x1"%>
+ </div>
+
+
+  <div class="field">
+    <%= f.label :state %>
+    <%= f.collection_select :state_id, State.repair_states(@current_user.category.id, if @repair_log.id then @repair_log.state_id else 0 end), :id, :name, :prompt => true %>  
+    <%= f.label :note %>
+    <%= f.text_area :note, :size => "30x1"%>
+  </div>
+
+<div id='record'><%= button_tag_l "record", :type => 'button' %></div>
+
+<div id='recoveried' style="display: none"> 
+  <div id='devices_repair_logs'>
+    <%= hidden_field_tag :devices_repair_logs_length, @repair_log.devices_repair_logs.length %>
+    <%= f.label :device %>  <%=  collection_select("device", "id", Device.avalible_stocks_area_devices(@repair_log.category, @repair_log.area), :id, :name) %>  
+    <%= button_tag_l "add", :type => 'button' %>
+  <% for device_repair_log in @repair_log.devices_repair_logs do %>
+    <div>
+    <%= f.fields_for :devices_repair_logs, device_repair_log do |dr|%>
+      <%= device_repair_log.device.name %>
+      <%= dr.hidden_field :device_id %>
+      <%= link_to_l 'delete', '#' if device_repair_log.new_record? %>
+      <%end%>
+    </div>
+    <% end %>
+</div>
+
+ <div class="field" id='cost'>
+    <%= f.label :cost %>
+    <%= f.text_field :cost %>
+ </div>  
+
+ <div class="field" id='user2'>
+    <%= f.label :user2 %>
+    <%= f.collection_select :user2_id, User.assistants(@current_user.category.id, @current_user.id), :id, :name, :prompt => true %>  
+ </div>  
+
+
+</div>
+
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<% end %>
+
+

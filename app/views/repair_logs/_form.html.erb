@@ -1,0 +1,6 @@
+<% if @current_user.is_inputer?%>
+  <%= render 'form_inputer'%>
+<% else %>
+  <%= render 'form_maintain'%>
+<% end %>
+

@@ -1,0 +1,78 @@
+<h1><%=header_for 'device stock' %></h1>
+<p id="notice"><%= notice %></p>
+
+<%= form_for(@device) do |f| %>
+  <% if @device.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= error_messages_for(@device) %></h2>
+
+      <ul>
+      <% @device.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= @device.name %>
+  </div>  
+
+  <div id='stocks'>
+    <%= f.label :stocks %><br/>
+   <% @device.stocks.each do |stock| %>
+    <div>
+    <%= f.fields_for :stocks, stock do |sf|%>
+      <%= sf.hidden_field :area_id %>
+      <b><%= stock.area.name %></b>
+      <%= stock.rest %>
+      <%= sf.label :warning %>
+      <%= sf.text_field :warning %><br/>
+    <%end%>
+   </div>
+  <% end %>
+
+   <div id='stock_in'>   
+   <% @device.new_stock_logs.each do |log| %>   
+    <%= f.fields_for :new_stock_logs, log do |sl|%>
+      <%= button_tag_l 'stock_in', :value => 'stock_in' %>
+      <%= f.label :out_area %>
+      <%= sl.collection_select :out_area_id, Area.where(:category_id => @current_user.category_id), :id, :name, :prompt => true  %>
+      <%= f.label :in_area %>
+      <%= sl.collection_select :in_area_id, Area.where(:category_id => @current_user.category_id), :id, :name, :prompt => true  %>
+      <%= sl.text_field :amount, :size => 5 %><br/>
+    <%end%>
+    <%end%>
+   </div>
+    
+   <div id='stock_logs'>
+<table>
+  <tr>
+    <th><%= title_for 'date'%></th>
+    <th><%= title_for 'out_area'%></th>
+    <th><%= title_for 'in_area'%></th>
+    <th><%= title_for 'amount'%></th>
+  </tr>
+
+<% @device.stock_logs.each do |log| %>
+  <tr>
+    <td><%= to_date log.created_at %></td>
+    <td><%= log.out_area.name if log.out_area %></td>
+    <td><%= log.in_area.name %></td>
+    <td><%= log.amount %></td>
+    </tr>
+<% end %>
+</table>
+
+   </div>
+  
+  </div>
+   
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<%= link_to_l 'Back', devices_path %>

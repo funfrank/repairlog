@@ -1,0 +1,29 @@
+table {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 2px solid #CCCCCC;
+    border-collapse: collapse;
+    margin: 0 0 1.5em;
+}
+table th, table td {
+    border: 1px solid #CCCCCC;
+    border-collapse: collapse;
+ 
+}
+table th {
+    background: none repeat scroll 0 0 #EEEEEE;
+    border-bottom: 2px solid #CCCCCC;
+    font-weight: bold;
+ 
+}
+h1 {
+    font-size: 2.5em;
+    font-weight: bold;
+    line-height: 1em;
+    margin: 0.6em 0 0.2em;
+}
+h2,h3,h4,h5,h6 {
+    font-size: 1em;
+    font-weight: bold;
+    line-height: 1em;
+    margin: 0.7em 0 0.2333em;
+}

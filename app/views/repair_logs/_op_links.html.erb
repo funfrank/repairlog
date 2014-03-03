@@ -1,0 +1,14 @@
+<% repair_log.op_links(@current_user).map do |s| %> 
+ <% case s.name  %>
+ <%   when 'show' %>
+         <%= link_to_l 'Show', repair_log %>
+ <%   when 'edit' %>
+         <%= link_to_l 'Edit', edit_repair_log_path(repair_log) %>
+ <%   when 'destroy' %>
+         <%= link_to_l 'Destroy', repair_log, confirm: destroy_prompt, method: :delete %>
+ <%   else %>
+       <div id='div_next_do'> 
+        <%= link_to s.name, next_do_repair_log_path(repair_log), :remote => true %>
+       </div> 
+ <% end %>
+<% end %>

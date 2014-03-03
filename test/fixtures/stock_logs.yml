@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  device: 
+  in_area: 
+  out_area: 
+  amount: 1
+  date: 2013-02-01 08:59:09
+
+two:
+  device: 
+  in_area: 
+  out_area: 
+  amount: 1
+  date: 2013-02-01 08:59:09

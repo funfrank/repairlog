@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  category_id: 
+  role_id: 
+  state_id: MyString
+  integer: MyString
+
+two:
+  category_id: 
+  role_id: 
+  state_id: MyString
+  integer: MyString

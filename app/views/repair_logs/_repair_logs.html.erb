@@ -1,0 +1,21 @@
+<table>
+  <tr>
+    <th><%= title_for 'sendDate'%></th>
+    <th><%= title_for 'failure'%></th>
+    <th><%= title_for 'device'%></th>
+    <th><%= title_for 'stateDate'%></th>
+  </tr>
+
+<% repair_logs.each do |repair_log| %>
+  <tr>
+    <td><%= to_date repair_log.sendDate  %></td>
+    <td><%= repair_log.failure.name %></td>
+    <td><%= repair_log.devices_repair_logs_short %></td>
+    <td><%= to_date repair_log.stateDate %></td>
+  </tr>
+<% end %>
+</table>
+
+
+<br/><br/>
+<%= close_win_button %>

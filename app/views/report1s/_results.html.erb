@@ -1,0 +1,73 @@
+<% if repair_logs.length > 0 %>
+<% I18n.with_options :scope => [:activerecord, :attributes, :report1] do |i18_l| %>
+<h3><%= i18_l.t :head %></h3>
+<h4><%= i18_l.t :subhead %></h4>
+
+<div>
+<strong>
+<%= i18_l.t :note1 %>
+<%= (i18_l.t :cur_date).html_safe %> <%= to_date(Time.now) %>
+</strong></div>
+<br/>
+
+<h5><%= i18_l.t :company %> <%= company.name if company %></h5>
+
+<% 
+ i = 0 
+ sums = 0
+ s = 0
+ costs = 0
+ c = 0
+%>
+<div>
+<table>
+  <tr>
+    <th><%= label_tag i18_l.t :id %></th>
+    <th><%= label_tag i18_l.t :posid %></th>
+    <th><%= label_tag i18_l.t :failure %></th>
+    <th><%= label_tag i18_l.t :deviceRepairLogs %></th>
+    <th><%= label_tag i18_l.t :priceDeviceRepairLogs %></th>
+    <th><%= label_tag i18_l.t :note %></th>
+  </tr>
+
+<% repair_logs.each do |repair_log| %>
+<% 
+i =  i + 1 
+s = repair_log.devices_repair_logs_sum
+sums = sums + s 
+c = repair_log.cost
+costs = costs + c 
+%>
+  <tr>
+    <td><%= i.to_s %></td>
+    <td><%= repair_log.posid %></td>
+    <td><%= repair_log.failure.name %></td>
+    <td><%= repair_log.devices_repair_logs_short %></td>
+    <td><%= s.to_s %></td>
+    <td> </td>
+  </tr>
+<% end %>
+  <tr>
+    <td><%= (i+1).to_s %></td>
+    <td colspan=2><%= i18_l.t :sum %><%= sums.to_s %></td>
+    <td><%= i18_l.t :cost %><%=costs.to_s %></td>
+    <td colspan=2><%= i18_l.t :total %><%= (sums + costs).to_s %></td>
+  </tr>
+</table>
+</div>
+
+<div><strong><%= i18_l.t :note2 %></strong></div>
+
+<br/><br/>
+<div><strong>
+<%= (i18_l.t :sign_up).html_safe %><br/>
+<%= (i18_l.t :sign_date).html_safe %><br/>
+</strong></div>  
+  
+
+  <% end %>
+
+<% end %>
+
+
+

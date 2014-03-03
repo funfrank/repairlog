@@ -1,0 +1,23 @@
+<% I18n.with_options :scope => [:activerecord, :attributes, :report2] do |i18_l| %>
+
+<div id='search'>
+  <%=render :partial => 'my/search', :locals => {:searcher => 'StatesRepairLog' } %>
+</div>
+
+
+<div id='print'><%= button_tag_l 'print' %></div>
+
+
+<div id='PrintDiv'>
+
+<div id='results'> 
+  <%=render :partial => 'results', :locals => {:rpts => @rpts} %>
+</div>
+
+</div>
+
+
+
+
+<% end %>
+

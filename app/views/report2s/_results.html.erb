@@ -1,0 +1,50 @@
+<% if repair_logs.length > 0 %>
+<% I18n.with_options :scope => [:activerecord, :attributes, :report2] do |i18_l| %>
+<h3><%= i18_l.t :head %></h3>
+
+<% 
+ i = 0 
+%>
+
+<div>
+<table>
+  <tr>
+    <th><%= label_tag i18_l.t :id %></th>
+    <th><%= label_tag i18_l.t :date %></th>
+    <th><%= label_tag i18_l.t :posid %></th>
+    <th><%= label_tag i18_l.t :company %></th>
+    <th><%= label_tag i18_l.t :operator %></th>
+    <th><%= label_tag i18_l.t :area %></th>
+    <th><%= label_tag i18_l.t :note %></th>
+  </tr>
+
+<% repair_logs.each do |repair_log| %>
+<% 
+i =  i + 1 
+%>
+  <tr>
+    <td><%= i.to_s %></td>
+    <td><%= to_date(repair_log.sendDate) %></td>
+    <td><%= repair_log.posid %></td>
+    <td><%= repair_log.company.name %></td>
+    <td><%= repair_log.operator.name%></td>
+    <td><%= repair_log.area.name %></td>
+    <td> </td>
+  </tr>
+<% end %>
+</table>
+</div>
+
+<br/><br/>
+<div><strong>
+<%= (i18_l.t :sign_date).html_safe %><br/>
+</strong>
+</div>  
+  
+
+  <% end %>
+
+<% end %>
+
+
+

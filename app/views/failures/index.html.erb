@@ -1,0 +1,21 @@
+<h1><%=header_for 'Listing failures'%></h1>
+
+<table>
+  <tr>
+    <th><%= title_for 'name' %></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @failures.each do |failure| %>
+  <tr>
+    <td><%= failure.name %></td>
+    <td><%= link_to_l 'Edit', edit_failure_path(failure) %></td>
+    <td><%= link_to_l 'Destroy', failure, confirm: destroy_prompt, method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to_l 'New Failure', new_failure_path %>

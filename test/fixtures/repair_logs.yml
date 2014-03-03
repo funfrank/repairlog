@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  posid: MyString
+  comany: 
+  sendDate: 2012-02-12 10:39:10
+  failure: 
+  state: 
+  note: MyText
+  operator_id: 1
+  outDate: 2012-02-12 10:39:10
+
+two:
+  posid: MyString
+  comany: 
+  sendDate: 2012-02-12 10:39:10
+  failure: 
+  state: 
+  note: MyText
+  operator_id: 1
+  outDate: 2012-02-12 10:39:10

@@ -1,0 +1,65 @@
+<%= form_for( eval(searcher).new_searcher, :url => { :action => 'search' }, :method => 'get', :remote => true ) do |f| %>
+
+<%= yield  %>
+
+<%
+    y = YAML.load(File.open("config//locales//%s.yml" %I18n.locale))
+    module_key = eval(searcher).model_name.singular
+
+    y[I18n.locale.to_s]['activerecord']['search'][module_key].each do |p|
+%>
+
+<div>
+
+<%  case  p[1] 
+      when 'datetime' %>
+        <%= f.label p[0] %>
+        <%= date_select :searcher, p[0] + '_start',  :prompt => true%> --     
+        <%= date_select :searcher, p[0] + '_end', :prompt => true%>
+
+<%    when 'string', 'integer'  %>
+        <%= f.label p[0] %>
+        <%= text_field :searcher, p[0] %>
+<%    else  %>
+      <% if p.is_a?(Array)  
+            p[1].map do |pp|
+        %>
+        <% if not pp[1].index('|')  %>
+          <%= f.label pp[1] %>
+           <%= collection_select :searcher, pp[0], eval(pp[1].humanize).all, :id, :name, :prompt => true %>
+        <% else %>
+          <%
+            ppp = pp[1].split('|')
+			s_where = ''
+			ppp[1].split(',').each do |pr|
+			   s_where << ' 1=1 '
+  			   pr.split('=>').each do |prr|
+			     if prr.index('@')
+				   s_where << '=' + eval(prr).to_s 
+	             else 
+				   s_where << ' and ' + prr 
+				 end 
+			   end
+			end
+          %>
+          <%= f.label ppp[0] %>
+           <%= collection_select :searcher, pp[0], eval(ppp[0].humanize).where(s_where), :id, :name, :prompt => true %>
+        <% end%>
+
+      <% end%>
+    <% end%>
+
+
+<%    end   %>
+
+</div>
+
+<%  end   %>
+
+
+
+  <div class="actions">
+    <%= button_tag_l 'search'%>
+  </div>
+<% end %>
+

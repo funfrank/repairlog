@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Code:</b>
+  <%= @failure.code %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @failure.name %>
+</p>
+
+
+<%= link_to 'Edit', edit_failure_path(@failure) %> |
+<%= link_to 'Back', failures_path %>

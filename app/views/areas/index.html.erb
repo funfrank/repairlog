@@ -1,0 +1,21 @@
+<h1><%=header_for 'Listing areas'%></h1>
+
+<table>
+  <tr>
+    <th><%= title_for 'name' %></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @areas.each do |area| %>
+  <tr>
+    <td><%= area.name %></td>
+    <td><%= link_to_l 'Edit', edit_area_path(area) %></td>
+    <td><%= link_to_l 'Destroy', area, confirm: destroy_prompt, method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to_l 'New area', new_area_path %>

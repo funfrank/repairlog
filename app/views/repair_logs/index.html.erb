@@ -1,0 +1,28 @@
+<div id='PrintDiv'>
+
+<h1><%= header_for 'Listing repair_logs' %></h1>
+
+<div id='search'>
+  <%=render :partial => 'posid', :layout =>'my/search', :locals => {:searcher => 'RepairLog' } %>
+
+</div>
+
+<div id='search_links'>
+  <% State.search_states(@current_user.category.id).each do |s| %>
+   <%=link_to s.name, search_link_repair_log_path(:s_key => 'state_id',  :s_value => s.id) , :remote => true  %>
+  <% end %>
+</div>
+
+<div id='results'> 
+  <%=render :partial => 'results', :locals => {:repair_logs => @repair_logs} %>
+</div>
+
+</div>
+
+
+<br />
+
+<%= link_to_l 'New Repair_log', new_repair_log_path %>
+
+
+
